@@ -28,6 +28,16 @@ def LinearRegression(geno, pheno):
     return beta, pval
 
 def getGenotype(vcf_file):
+    mapping = {'0/0': numpy.int8(1),
+               '1/0': numpy.int8(2),
+               '0/1': numpy.int8(2),
+               '1/1': numpy.int8(3),
+               '0|0': numpy.int8(1),
+               '1|0': numpy.int8(2),
+               '0|1': numpy.int8(2),
+               '1|1': numpy.int8(3)
+               }
+    
     pd.read_csv(vcf_file, comment="#", sep="\t", names=column_name)
     column_name = []
     with open(vcf_file, 'r') as file:
@@ -38,4 +48,8 @@ def getGenotype(vcf_file):
                 column_name[-1] = column_name[-1][:-1]  # remove \n
         
         
-    pd.read_csv(vcf_file, comment="#", sep="\t", names=column_name)
+    data = pd.read_csv(vcf_file, comment="#", sep="\t", names=column_name)
+    for i in range(9, len(column_name)):
+        vcf[column_name[i]] = vcf[column_name[i]].map(mapping)
+    vcf[column_name[1]] = vcf[column_name[1]].astype(numpy.int32)
+    return vcf
