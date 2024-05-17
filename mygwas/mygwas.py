@@ -27,29 +27,21 @@ def LinearRegression(geno, pheno):
     pval = results.pvalues[1]
     return beta, pval
 
-def getGenotype(vcf_file):
-    mapping = {'0/0': numpy.int8(1),
-               '1/0': numpy.int8(2),
-               '0/1': numpy.int8(2),
-               '1/1': numpy.int8(3),
-               '0|0': numpy.int8(1),
-               '1|0': numpy.int8(2),
-               '0|1': numpy.int8(2),
-               '1|1': numpy.int8(3)
-               }
-    
-    pd.read_csv(vcf_file, comment="#", sep="\t", names=column_name)
-    column_name = []
-    with open(vcf_file, 'r') as file:
-        for line in file:
-            if line.startswith('#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT'):
-                column_name = line.split('\t')
-                column_name[0] = column_name[0][1:]  # remove #
-                column_name[-1] = column_name[-1][:-1]  # remove \n
-        
-        
-    data = pd.read_csv(vcf_file, comment="#", sep="\t", names=column_name)
-    for i in range(9, len(column_name)):
-        vcf[column_name[i]] = vcf[column_name[i]].map(mapping)
-    vcf[column_name[1]] = vcf[column_name[1]].astype(numpy.int32)
-    return vcf
+import io
+import os
+import pandas as pd
+
+def read_vcf(path):
+    with open(path, 'r') as f:
+        lines = [l for l in f if not l.startswith('##')]
+    return pd.read_csv(
+        io.StringIO(''.join(lines)),
+        dtype={'#CHROM': str, 'POS': int, 'ID': str, 'REF': str, 'ALT': str,
+               'QUAL': str, 'FILTER': str, 'INFO': str},
+        sep='\t'
+    ).rename(columns={'#CHROM': 'CHROM'})
+
+def getPhenotype(phenotype_path):
+    phen = pd.read_csv(phenotype_path, sep='\t', header =None)
+    return phen 
+
