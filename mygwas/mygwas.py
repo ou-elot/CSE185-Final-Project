@@ -12,9 +12,6 @@ def main():
   #Input
   parser.add_argument("geno", help="vcf file of a genome that contains genotype", type = str)
   parser.add_argument("pheno", help="txt file that contains phenotypes of a genome", type = str)
-  
-  #Output
-  parser.add_argument("-o", "--out", help="write output to file" , metavar = "FILE", type=str, required = FALSE)
 
   parser.add_argument("--manhattan", help="plot manhattan plot")
   parser.add_argument("--qq", help="plot QQ plot")
