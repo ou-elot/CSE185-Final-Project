@@ -9,16 +9,13 @@ def main():
     prog = "mygwas",
     description = "Command Line Script to perform gwas"
   )
-
   #Input
   parser.add_argument("--geno", help="vcf file of a genome that contains genotype", type = str)
   parser.add_argument("--pheno", help="txt file that contains phenotypes of a genome", type = str)
   parser.add_argument("--output", help="output directory, must add / to end of directory", type = str)
   parser.add_argument("--graphs", help="plot Manhattan and QQ plot")
   parser.add_argument("--linreg", help="conduct linear regression to obtain beta and p-values")
-  
   args = parser.parse_args()
-
   if args.input == '-h' or args.out == '-h':
     parser.print_help()
   elif not os.path.isfile(args.geno) or not os.path.isfile(args.pheno):
@@ -34,7 +31,6 @@ def main():
       if args.graphs:
         print("making graphs...")
         graphs(gwas_data, args.ouput)
-  
   sys.exit(0)
   
 if __name__ == "__main__":
