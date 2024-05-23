@@ -50,12 +50,14 @@ def Linreg(gts, pts):
     pval = results.pvalues[1]
     return beta, pval
 
-def gwas (geno_file, pheno_file):
+def gwas (geno_file, pheno_file, output):
     a = []
-    genoCopy = genotype(geno_file)
-    geno = genotype(geno_file)
+    genoCopy = genotype('gwas_test.vcf')
+    geno = genotype('gwas_test.vcf')
     geno.drop(geno.columns[[0,1,2,3,4,5,6,7,8]], axis=1, inplace=True)
-    pheno = getPhenotype(pheno_file)
+
+
+    pheno = getPhenotype('lab3_gwas.phen')
     pts = pheno[2]
     for index, row in geno.iterrows():
         gts = geno.iloc[index].to_numpy()
@@ -64,5 +66,5 @@ def gwas (geno_file, pheno_file):
         b = [genoCopy[2][index], pval, beta]
         a.append(b)
     data = pd.DataFrame(a, columns = ['Gene Name', 'p-value', 'Beta value'])
-    data.to_csv('beta_pval.txt', sep='\t', index=False)
+    data.to_csv(output+'beta_pval.txt', sep='\t', index=False)
     return data
