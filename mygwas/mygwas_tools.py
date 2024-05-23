@@ -70,8 +70,8 @@ def gwas (geno_file, pheno_file, output):
     return data
 
 def graphs (gwas_data, output):
-    data = pd.read_csv(gwas_data), delim_whitespace=True)
+    gwas = pd.read_csv((gwas_data), sep='\t')
     fig, (ax0, ax1) = plt.subplots(1, 2, gridspec_kw={'width_ratios': [2, 1]})
     fig.set_size_inches((15, 5))
-    qqman.manhattan(data, ax=ax0, out= output+"Manhattan.png")
-    qqman.qqplot(data, ax=ax1, out=output+"qq.png")
+    qqman.manhattan(gwas, ax=ax0, out= output+"Manhattan.png")
+    qqman.qqplot(gwas, ax=ax1, out=output+"qq.png")
