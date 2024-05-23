@@ -56,7 +56,6 @@ def gwas (geno_file, pheno_file, output):
     genoCopy = genotype('gwas_test.vcf')
     geno = genotype('gwas_test.vcf')
     geno.drop(geno.columns[[0,1,2,3,4,5,6,7,8]], axis=1, inplace=True)
-
     pheno = getPhenotype('lab3_gwas.phen')
     pts = pheno[2]
     for index, row in geno.iterrows():
