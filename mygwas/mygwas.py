@@ -10,9 +10,9 @@ def main():
   )
 
   #Input
-  parser.add_argument("geno", help="vcf file of a genome that contains genotype", type = str)
-  parser.add_argument("pheno", help="txt file that contains phenotypes of a genome", type = str)
-
+  parser.add_argument("--geno", help="vcf file of a genome that contains genotype", type = str)
+  parser.add_argument("--pheno", help="txt file that contains phenotypes of a genome", type = str)
+  parser.add_argument("--output", help="output directory, must add / to end of directory", type = str)
   parser.add_argument("--manhattan", help="plot manhattan plot")
   parser.add_argument("--qq", help="plot QQ plot")
   parser.add_argument("--linreg", help="conduct linear regression to obtain beta and p-values")
@@ -30,4 +30,4 @@ def main():
     df = pd.read_csv(args.input, sep='\t')
     if args.linreg:
       print("conducting linear regression...")
-      gwas(args.geno, args.pheno)
+      gwas(args.geno, args.pheno, args.output)
