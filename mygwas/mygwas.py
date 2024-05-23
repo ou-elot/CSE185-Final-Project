@@ -2,6 +2,7 @@ import argparse
 from mygwas.mygwas_tools import *
 import argparse
 import os
+import sys
 
 def main():
   parser = argparse.ArgumentParser(
@@ -13,8 +14,7 @@ def main():
   parser.add_argument("--geno", help="vcf file of a genome that contains genotype", type = str)
   parser.add_argument("--pheno", help="txt file that contains phenotypes of a genome", type = str)
   parser.add_argument("--output", help="output directory, must add / to end of directory", type = str)
-  parser.add_argument("--manhattan", help="plot manhattan plot")
-  parser.add_argument("--qq", help="plot QQ plot")
+  parser.add_argument("--graphs", help="plot Manhattan and QQ plot")
   parser.add_argument("--linreg", help="conduct linear regression to obtain beta and p-values")
   
   args = parser.parse_args()
@@ -30,4 +30,12 @@ def main():
     df = pd.read_csv(args.input, sep='\t')
     if args.linreg:
       print("conducting linear regression...")
-      gwas(args.geno, args.pheno, args.output)
+      gwas_data = gwas(args.geno, args.pheno, args.output)
+      if args.graphs:
+        print("making graphs...")
+        graphs(gwas_data, args.ouput)
+  
+  sys.exit(0)
+  
+if __name__ == "__main__":
+  main()     
