@@ -1,14 +1,31 @@
+import os
 from setuptools import setup, find_packages
+
+# version-keeping code based on pybedtools
+curdir = os.path.abspath(os.path.dirname(__file__))
+MAJ = 0
+MIN = 0
+REV = 0
+VERSION = '%d.%d.%d' % (MAJ, MIN, REV)
+with open(os.path.join(curdir, 'mypileup/version.py'), 'w') as fout:
+        fout.write(
+            "\n".join(["",
+                       "# THIS FILE IS GENERATED FROM SETUP.PY",
+                       "version = '{version}'",
+                       "__version__ = version"]).format(version=VERSION)
+        )
+
+
 setup(
-  name = 'gwas',
-  version = 0.1,
-  description= 'CSE 185 S24 Final Project Gwas',
-  authors = 'Elliott Ou, Lenny Lei, Audria Montalvo',
-  author_emails = 'elou@ucsd.edu, wlei@ucsd.edu, ansaravi@ucsd.edu',
-  packages = find_packages(),
-  entry_points = {
-    "console_scripts": [
-      "mygwas=mygwas.mygwas:main"
-    ],
-  },
+    name='mygwas',
+    version=VERSION,
+    description='CSE185 Final GWAS',
+    author='Elliott Ou',
+    author_email='elou@ucsd.edu',
+    packages=find_packages(),
+    entry_points={
+        "console_scripts": [
+            "mygwas=mygwas.mygwas:main"
+        ],
+    },
 )
