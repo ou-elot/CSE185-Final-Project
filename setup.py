@@ -1,5 +1,6 @@
 import os
 from setuptools import setup, find_packages
+from gwas_tools.__version__ import __version__
 
 # version-keeping code based on pybedtools
 curdir = os.path.abspath(os.path.dirname(__file__))
