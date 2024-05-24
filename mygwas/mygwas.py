@@ -27,10 +27,8 @@ def main():
   parser.add_argument("--pheno", help="txt file that contains phenotypes of a genome", type = str)
   parser.add_argument("--output", help="output directory, must add / to end of directory", type = str)
   parser.add_argument("--graphs", help="plot Manhattan and QQ plot")
-  parser.add_argument("--linreg", help="conduct linear regression to obtain beta and p-values")
   args = parser.parse_args()
 
-  
   if not os.path.isfile(args.geno) or not os.path.isfile(args.pheno):
       print("Invalid file path.")
   if not os.path.isdir(args.out):
