@@ -5,6 +5,19 @@ import os
 import sys
 
 def main():
+  """
+  This function serves as the entry point for the command line script `mygwas`.
+  It parses command line arguments to perform GWAS, including reading genotype
+  and phenotype files, conducting linear regression, and generating plots.
+
+  Command Line Arguments:
+  -----------------------
+  --geno (str): Path to the VCF file containing genotype data.
+  --pheno (str): Path to the text file containing phenotype data.
+  --output (str): Directory where the output files will be saved. Must include trailing '/'.
+  --graphs (bool): Flag indicating whether to generate Manhattan and QQ plots.
+  --linreg (bool): Flag indicating whether to conduct linear regression to obtain beta and p-values.
+  """
   parser = argparse.ArgumentParser(
     prog = "mygwas",
     description = "Command Line Script to perform gwas"
