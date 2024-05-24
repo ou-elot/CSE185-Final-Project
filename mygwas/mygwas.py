@@ -35,7 +35,6 @@ def main():
       print("Invalid output directory.")
   else:
     print("Reading statistics file...")
-    df = pd.read_csv(args.input, sep='\t')
     if args.linreg:
       print("conducting linear regression...")
       gwas_data = gwas(args.geno, args.pheno, args.output)
