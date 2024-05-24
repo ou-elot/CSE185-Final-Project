@@ -17,3 +17,26 @@ MyGWAS is a command line tool designed to perform Genome-Wide Association Studie
 - numpy
 - matplotlib
 - qqman (or equivalent package for GWAS plotting)
+
+## Installation
+Clone the directory into your own terminal. 
+```
+git clone https://github.com/ou-elot/CSE185-Final-Project
+```
+
+Download the requirements.
+```
+pip install -r requirements.txt
+```
+
+Run the following commands in the terminal to ensure installation is successful.
+```
+export PATH=$PATH=$HOME/.local/bin
+export PYTHONPATH=$HOME/lib/python3.9/site-packages
+python setup.py install --prefix=$HOME
+```
+
+You should now be able to run the command. Type the following to check:
+```
+mygwas --help
+```
