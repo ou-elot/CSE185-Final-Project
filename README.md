@@ -43,3 +43,5 @@ You should now be able to run the command. Type the following to check:
 ```
 mygwas --help
 ```
+## Usage
+
