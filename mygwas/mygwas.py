@@ -29,18 +29,18 @@ def main():
   parser.add_argument("--graphs", help="plot Manhattan and QQ plot")
   parser.add_argument("--linreg", help="conduct linear regression to obtain beta and p-values")
   args = parser.parse_args()
+
+  
   if not os.path.isfile(args.geno) or not os.path.isfile(args.pheno):
       print("Invalid file path.")
   if not os.path.isdir(args.out):
       print("Invalid output directory.")
   else:
-    print("Reading statistics file...")
-    if args.linreg:
-      print("conducting linear regression...")
-      gwas_data = gwas(args.geno, args.pheno, args.output)
-      if args.graphs:
-        print("making graphs...")
-        graphs(gwas_data, args.ouput)
+  print("Reading statistics file...")
+  geno = args.geno
+  pheno = args.pheno
+  print("conducting linear regression...")
+  gwas_data = gwas(geno, pheno, args.output)
   sys.exit(0)
   
 if __name__ == "__main__":
