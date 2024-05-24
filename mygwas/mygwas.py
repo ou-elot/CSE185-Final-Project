@@ -29,11 +29,9 @@ def main():
   parser.add_argument("--graphs", help="plot Manhattan and QQ plot")
   parser.add_argument("--linreg", help="conduct linear regression to obtain beta and p-values")
   args = parser.parse_args()
-  if args.input == '-h' or args.out == '-h':
-    parser.print_help()
-  elif not os.path.isfile(args.geno) or not os.path.isfile(args.pheno):
+  if not os.path.isfile(args.geno) or not os.path.isfile(args.pheno):
       print("Invalid file path.")
-  elif not os.path.isdir(args.out):
+  if not os.path.isdir(args.out):
       print("Invalid output directory.")
   else:
     print("Reading statistics file...")
