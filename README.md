@@ -44,4 +44,8 @@ You should now be able to run the command. Type the following to check:
 mygwas --help
 ```
 ## Usage
-
+The mygwas tool is a command line tool that takes in a vcf file containing genotypes, a csv file containing phenotypes, and a output directory to store output files, which must end in "/". 
+```
+usage: mygwas --geno [genotype file] --pheno [phenotype file] --output [output directory]
+example: mygwas --geno geno.vcf --pheno pheno.pheno --output gwas_output/
+```
