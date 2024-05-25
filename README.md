@@ -47,5 +47,5 @@ mygwas --help
 The mygwas tool is a command line tool that takes in a vcf file containing genotypes and a csv file containing phenotypes, and ouputs files to the current directory.
 ```
 usage: mygwas --geno [genotype file] --pheno [phenotype file] 
-example: mygwas --geno geno.vcf --pheno pheno.pheno
+example: mygwas --geno geno.vcf --pheno pheno.phen
 ```
