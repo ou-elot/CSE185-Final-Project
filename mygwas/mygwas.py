@@ -29,8 +29,10 @@ def main():
 
   if not os.path.isfile(args.geno) or not os.path.isfile(args.pheno):
       print("Invalid file path.")
+      sys.exit(1)
   if not os.path.isdir(args.out):
       print("Invalid output directory.")
+      sys.exit(1)
   else:
     // Note: the print should be indented inside
   print("Reading statistics file...")
