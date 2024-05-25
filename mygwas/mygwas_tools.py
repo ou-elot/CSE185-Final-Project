@@ -67,7 +67,7 @@ def Linreg(gts, pts):
     pval = results.pvalues[1]
     return beta, pval
 
-def gwas (geno_file, pheno_file, output):
+def gwas (geno_file, pheno_file):
     """
      This function performs a Genome-Wide Association Study (GWAS) by 
     analyzing genotype and phenotype data. It reads the genotype and 
@@ -99,25 +99,8 @@ def gwas (geno_file, pheno_file, output):
         b = [genoCopy[0][index], genoCopy[2][index], genoCopy[1][index], pval, beta]
         a.append(b)
     data = pd.DataFrame(a, columns = ['CHR', 'SNP', 'BP', 'P', 'BETA'])
-    data.to_csv(output+'beta_pval.txt', sep='\t', index=False)
-    return data
-
-def graphs (gwas_data, output):
-    """
-    This function creates visualizations for Genome-Wide Association Study (GWAS) results.
-    It reads the GWAS results from a file and generates a Manhattan plot and a QQ plot using the
-    `qqman` library, then saves these plots to specified output files.
-
-    Parameters
-    ----------
-    gwas_data (str): The path to the file containing GWAS results. The file is expected to be
-                     in tab-separated format with columns for chromosome (CHR), SNP, base pair position (BP),
-                     p-value (P), and beta coefficient (BETA).
-    output (str): The base path for the output files to save the plots. The function will save
-                  two plots: a Manhattan plot and a QQ plot, with filenames derived from this base path.
-    """
-    gwas = pd.read_csv((gwas_data), sep='\t')
     fig, (ax0, ax1) = plt.subplots(1, 2, gridspec_kw={'width_ratios': [2, 1]})
     fig.set_size_inches((15, 5))
-    qqman.manhattan(gwas, ax=ax0, out= output+"Manhattan.png")
-    qqman.qqplot(gwas, ax=ax1, out=output+"qq.png")
+    qqman.manhattan(data, ax=ax0, out= "Manhattan.png")
+    qqman.qqplot(data, ax=ax1, out= "qq.png")
+    return data
