@@ -32,6 +32,7 @@ def main():
   if not os.path.isdir(args.out):
       print("Invalid output directory.")
   else:
+    // Note: the print should be indented inside
   print("Reading statistics file...")
   geno = args.geno
   pheno = args.pheno
