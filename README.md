@@ -2,7 +2,7 @@
 UCSD CSE 185 Spring 2024 Final Project Elliott Ou, Audria Montalvo, and Leny Lei
 
 ## Note to CSE185 peer reviewers
-While installation works, the command currently does not run and we are working on fixing the main. In the meantime, please copy and paste the code from mygwas_tools.py in the mygwas folder into a datahub notebook and upload the test files to the same directory as the notebook. 
+While installation works, the command currently does not run and we are working on fixing the main. In the meantime, please copy and paste the code from mygwas_tools.py in the mygwas folder into a datahub notebook and upload the test files to the same directory as the notebook. Run gwas(geno file, pheno file) to get the output files in the directory. 
 
 # MyGWAS
 
@@ -48,4 +48,10 @@ The mygwas tool is a command line tool that takes in a vcf file containing genot
 ```
 usage: mygwas --geno [genotype file] --pheno [phenotype file] 
 example: mygwas --geno geno.vcf --pheno pheno.phen
+```
+Output files will be named the following:
+```
+p-values and beta values: linreg.txt
+qq-plot: qq.png
+manhattan plot: manhattan.png
 ```
