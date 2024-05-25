@@ -25,8 +25,6 @@ def main():
   #Input
   parser.add_argument("--geno", help="vcf file of a genome that contains genotype", type = str)
   parser.add_argument("--pheno", help="txt file that contains phenotypes of a genome", type = str)
-  parser.add_argument("--output", help="output directory, must add / to end of directory", type = str)
-  parser.add_argument("--graphs", help="plot Manhattan and QQ plot")
   args = parser.parse_args()
 
   if not os.path.isfile(args.geno) or not os.path.isfile(args.pheno):
@@ -38,7 +36,7 @@ def main():
   geno = args.geno
   pheno = args.pheno
   print("conducting linear regression...")
-  gwas_data = gwas(geno, pheno, args.output)
+  gwas(geno, pheno)
   sys.exit(0)
   
 if __name__ == "__main__":
