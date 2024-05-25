@@ -71,14 +71,14 @@ def gwas (geno_file, pheno_file):
     """
      This function performs a Genome-Wide Association Study (GWAS) by 
     analyzing genotype and phenotype data. It reads the genotype and 
-    phenotype files, performs linear regression for each SNP, and 
-    outputs the results.
+    phenotype files, performs linear regression for each SNP, plots the 
+    data into qq and manhattan plots, and exports the pvalues, qq plots, 
+    and manhattan plots as files into the current directory.
 
     Parameters
     ----------
     geno_file (str): The path to the genotype file (expected in VCF format).
     pheno_file (str): The path to the phenotype file.
-    output (str): The path for the output file to save the GWAS results.
 
     Returns
     -------
@@ -99,6 +99,7 @@ def gwas (geno_file, pheno_file):
         b = [genoCopy[0][index], genoCopy[2][index], genoCopy[1][index], pval, beta]
         a.append(b)
     data = pd.DataFrame(a, columns = ['CHR', 'SNP', 'BP', 'P', 'BETA'])
+    data.to_csv('linreg.txt', sep='\t')
     fig, (ax0, ax1) = plt.subplots(1, 2, gridspec_kw={'width_ratios': [2, 1]})
     fig.set_size_inches((15, 5))
     qqman.manhattan(data, ax=ax0, out= "Manhattan.png")
