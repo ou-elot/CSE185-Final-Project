@@ -2,7 +2,7 @@
 UCSD CSE 185 Spring 2024 Final Project Elliott Ou, Audria Montalvo, and Leny Lei
 
 ## Note to CSE185 peer reviewers
-The command currently does not run and we are working on fixing the main. In the meantime, please copy and paste the code from mygwas_tools.py into datahub. 
+While installation works, the command currently does not run and we are working on fixing the main. In the meantime, please copy and paste the code from mygwas_tools.py into datahub. 
 
 # MyGWAS
 
