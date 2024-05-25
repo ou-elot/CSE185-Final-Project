@@ -34,7 +34,7 @@ def main():
       print("Invalid output directory.")
       sys.exit(1)
   else:
-    // Note: the print should be indented inside
+    # Note: the print should be indented inside
   print("Reading statistics file...")
   geno = args.geno
   pheno = args.pheno
