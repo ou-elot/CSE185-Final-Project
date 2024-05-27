@@ -2,7 +2,7 @@
 UCSD CSE 185 Spring 2024 Final Project Elliott Ou, Audria Montalvo, and Leny Lei
 
 ## Note to CSE185 peer reviewers
-While installation works, the command currently does not run and we are working on fixing the main. In the meantime, please copy and paste the code from mygwas_tools.py in the mygwas folder into a datahub notebook and upload the test files to the same directory as the notebook. Run gwas(geno file, pheno file) to get the output files in the directory. 
+While installation works, the command may not run correctly for some and we are working on fixing the main. In the meantime if the program doesn't run, please copy and paste the code from mygwas_tools.py in the mygwas folder into a datahub notebook and upload the test files to the same directory as the notebook. Run gwas(geno file, pheno file) to get the output files in the directory. 
 
 # MyGWAS
 
