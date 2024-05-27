@@ -1,6 +1,6 @@
 import os
 from setuptools import setup, find_packages
-from gwas_tools.__version__ import __version__
+from mygwas.version import version
 
 MAJ = 0
 MIN = 0
