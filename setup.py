@@ -4,7 +4,7 @@ from gwas_tools.__version__ import __version__
 
 MAJ = 0
 MIN = 0
-REV = 0
+REV = 1
 VERSION = '%d.%d.%d' % (MAJ, MIN, REV)
 
 
