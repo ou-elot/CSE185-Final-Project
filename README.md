@@ -36,7 +36,6 @@ Run the following commands in the terminal before installation to ensure install
 ```
 export PATH=$PATH:$HOME/.local/bin
 export PYTHONPATH=$HOME/lib/python3.9/site-packages
-
 ```
 
 Installation Command:
