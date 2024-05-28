@@ -28,19 +28,19 @@ def main():
   args = parser.parse_args()
 
   if not os.path.isfile(args.geno) or not os.path.isfile(args.pheno):
-    print("Invalid file path.")
-    sys.exit(1)
+      print("Invalid file path.")
+      sys.exit(1)
   if not os.path.isdir(args.out):
-    print("Invalid output directory.")
-    sys.exit(1)
+      print("Invalid output directory.")
+      sys.exit(1)
   else:
     # Note: the print should be indented inside
-    print("Reading statistics file...")
-    geno = args.geno
-    pheno = args.pheno
-    print("conducting linear regression...")
-    gwas(geno, pheno)
-    sys.exit(0)
+      print("Reading statistics file...")
+      geno = args.geno
+      pheno = args.pheno
+      print("conducting linear regression...")
+      gwas(geno, pheno)
+      sys.exit(0)
   
 if __name__ == "__main__":
   main()     
