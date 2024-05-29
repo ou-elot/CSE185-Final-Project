@@ -89,14 +89,14 @@ def gwas (geno_file, pheno_file):
     a = []
     genoCopy = genotype('gwas_test.vcf')
     geno = genotype('gwas_test.vcf')
-    geno.drop(geno.columns[[0,1,2,3,4,5,6,7,8]], axis=1, inplace=True)
+    genoCopy.drop(genoCopy.columns[[0,1,2,3,4,5,6,7,8]], axis=1, inplace=True)
     pheno = getPhenotype('lab3_gwas.phen')
     pts = pheno[2]
-    for index, row in geno.iterrows():
-        gts = geno.iloc[index].to_numpy()
+    for index, row in genoCopy.iterrows():
+        gts = genoCopy.iloc[index].to_numpy()
         gts = gts.astype(np.float)
         beta, pval = Linreg(gts, pts);
-        b = [genoCopy[0][index], genoCopy[2][index], genoCopy[1][index], pval, beta]
+        b = [geno[0][index], geno[2][index], geno[1][index], pval, beta]
         a.append(b)
     data = pd.DataFrame(a, columns = ['CHR', 'SNP', 'BP', 'P', 'BETA'])
     data.to_csv('linreg.txt', sep='\t')
