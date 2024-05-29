@@ -43,7 +43,6 @@ cd CSE185-Final-Project
 ```
 Both installation commands below need to be ran:
 ```
-
 python setup.py install --prefix=$HOME
 pip install . #do not forget the period!
 ```
