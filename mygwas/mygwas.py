@@ -34,10 +34,8 @@ def main():
         print("Invalid output directory.")
         sys.exit(1)
     else:
-        print("Reading statistics file...")
         geno = args.geno
         pheno = args.pheno
-        print("conducting linear regression...")
         gwas(geno, pheno)
         sys.exit(0)
   
