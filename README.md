@@ -52,7 +52,7 @@ You should now be able to run the command. Type the following to check:
 mygwas --help
 ```
 ## Usage
-The mygwas tool is a command line tool that takes in a vcf file containing genotypes and a csv file containing phenotypes, and ouputs files to the current directory.
+The mygwas tool is a command line tool that takes in a vcf file containing genotypes and a csv file containing phenotypes, and ouputs files to the current directory. In the current version, the program only takes files as input if they are in the current working directory.
 ```
 usage: mygwas --geno [genotype file] --pheno [phenotype file] 
 example: mygwas --geno geno.vcf --pheno pheno.phen
