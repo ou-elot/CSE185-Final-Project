@@ -38,9 +38,10 @@ export PATH=$PATH:$HOME/.local/bin
 export PYTHONPATH=$HOME/lib/python3.9/site-packages
 ```
 
-Installation Command:
+Both installation commands below need to be ran:
 ```
 python setup.py install --prefix=$HOME
+pip install . #do not forget the period!
 ```
 
 You should now be able to run the command. Type the following to check:
