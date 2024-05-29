@@ -3,8 +3,8 @@ from setuptools import setup, find_packages
 from mygwas.version import version
 
 MAJ = 0
-MIN = 0
-REV = 4
+MIN = 1
+REV = 0
 VERSION = '%d.%d.%d' % (MAJ, MIN, REV)
 
 
