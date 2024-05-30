@@ -26,7 +26,11 @@ Clone the directory into your own terminal.
 ```
 git clone https://github.com/ou-elot/CSE185-Final-Project
 ```
+Now change directory into the project folder:
 
+```
+cd CSE185-Final-Project
+```
 Download the requirements.
 ```
 pip install -r requirements.txt
@@ -37,10 +41,7 @@ Run the following commands in the terminal before installation to ensure install
 export PATH=$PATH:$HOME/.local/bin
 export PYTHONPATH=$HOME/lib/python3.9/site-packages
 ```
-Now change directory into the project folder:
-```
-cd CSE185-Final-Project
-```
+
 Both installation commands below need to be ran:
 ```
 python setup.py install --prefix=$HOME
