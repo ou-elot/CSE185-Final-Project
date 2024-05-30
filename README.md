@@ -1,9 +1,6 @@
 # CSE185-Final-Project
 UCSD CSE 185 Spring 2024 Final Project Elliott Ou, Audria Montalvo, and Leny Lei
 
-## Note to CSE185 peer reviewers
-While installation works, the command may not run correctly for some and we are working on fixing the main. In the meantime if the program doesn't run, please copy and paste the code from mygwas_tools.py in the mygwas folder into a datahub notebook and upload the test files in the testfiles directory to the same directory as the notebook. Run gwas(geno file, pheno file) to run gwas and get the output files in the directory. 
-
 # MyGWAS
 
 MyGWAS is a command line tool designed to perform Genome-Wide Association Studies (GWAS). It processes genotype and phenotype data, conducts linear regression to obtain statistical associations, and generates visualizations such as Manhattan plots and QQ plots.
