@@ -86,22 +86,33 @@ def gwas (geno_file, pheno_file):
                   for chromosome, SNP ID, base pair position, p-value, and 
                   regression coefficient (beta).
     """
-    a = []
-    genoCopy = genotype('gwas_test.vcf')
-    geno = genotype('gwas_test.vcf')
+
+    # Read genotype & phenotype files that were given via the terminal python script  
+    genoCopy = genotype(geno_file)
+    geno = genotype(geno_file)    
     genoCopy.drop(genoCopy.columns[[0,1,2,3,4,5,6,7,8]], axis=1, inplace=True)
-    pheno = getPhenotype('lab3_gwas.phen')
+    pheno = getPhenotype(pheno_file)
     pts = pheno[2]
+
+    # Linear Regression for each SNP
+    results = []
     for index, row in genoCopy.iterrows():
         gts = genoCopy.iloc[index].to_numpy()
         gts = gts.astype(np.float)
         beta, pval = Linreg(gts, pts);
         b = [geno[0][index], geno[2][index], geno[1][index], pval, beta]
-        a.append(b)
-    data = pd.DataFrame(a, columns = ['CHR', 'SNP', 'BP', 'P', 'BETA'])
+        results.append(b)
+
+    # Dataframe from results
+    data = pd.DataFrame(results, columns = ['CHR', 'SNP', 'BP', 'P', 'BETA'])
+
+    # Save dataframe of GWAS results 
     data.to_csv('linreg.txt', sep='\t')
+    
+    # Perform QQ plot and Manhattan plot
     fig, (ax0, ax1) = plt.subplots(1, 2, gridspec_kw={'width_ratios': [2, 1]})
     fig.set_size_inches((15, 5))
     qqman.manhattan(data, ax=ax0, out= "Manhattan.png")
-    qqman.qqplot(data, ax=ax1, out= "qq.png")
+    qqman.qqplot(data, ax=ax1, out= "qq.png
+    
     return data
