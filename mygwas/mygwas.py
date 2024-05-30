@@ -19,13 +19,14 @@ def main():
     BLUE = '\033[94m'
     CYAN = '\033[96m' 
     WHITE = '\033[0m'
+    BOLD = '\033[1m'
     parser = argparse.ArgumentParser(
         #prog = "mygwas",
         #description = "Command Line Script to perform gwas"
         prog=f"{BLUE}mygwas",
         description=(
             f"{PINK}============================================================\n"
-            f"                 GWAS Command Line Tool \n"
+            f"{BOLD}                 GWAS Command Line Tool \n"
             "============================================================\n"
             f"This tool performs {CYAN}Genome-Wide Association Studies (GWAS){PINK}.\n"         
             "It processes genotype and phenotype data, conducts linear regression \n"
