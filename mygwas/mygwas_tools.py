@@ -87,10 +87,12 @@ def gwas (geno_file, pheno_file):
                   regression coefficient (beta).
     """
     results = []
+    print("In progress: Reading files...")
     genoCopy = genotype(geno_file)
     geno = genotype(geno_file)
     genoCopy.drop(genoCopy.columns[[0,1,2,3,4,5,6,7,8]], axis=1, inplace=True)
     pheno = getPhenotype(pheno_file)
+    print("In progress: Conducting Linear Regression...")
     pts = pheno[2]
     for index, row in genoCopy.iterrows():
         gts = genoCopy.iloc[index].to_numpy()
