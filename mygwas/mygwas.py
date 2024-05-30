@@ -18,7 +18,7 @@ def main():
     PINK = '\033[95m'
     BLUE = '\033[94m'
     CYAN = '\033[96m' 
-    
+    WHITE = '\033[0m'
     parser = argparse.ArgumentParser(
         #prog = "mygwas",
         #description = "Command Line Script to perform gwas"
@@ -49,7 +49,7 @@ def main():
     )
     parser.add_argument(
         "--pheno", 
-        help = f"{BLUE}PHENO file that contains phenotype data {\033[0m}", 
+        help = f"{BLUE}PHENO file that contains phenotype data {WHITE}", 
         type = str,
         required = True
     )
