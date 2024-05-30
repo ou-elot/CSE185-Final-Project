@@ -45,8 +45,8 @@ def main():
         type = str,
         required = True
     )
-    parser.add_argument("
-        --pheno", 
+    parser.add_argument(
+        "--pheno", 
         help = f"{BLUE}PHENO file that contains phenotype data {PINK}", 
         type = str,
         required = True
