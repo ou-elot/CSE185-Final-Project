@@ -112,7 +112,12 @@ def gwas (geno_file, pheno_file):
     # Perform QQ plot and Manhattan plot
     fig, (ax0, ax1) = plt.subplots(1, 2, gridspec_kw={'width_ratios': [2, 1]})
     fig.set_size_inches((15, 5))
+    
+    print("In progress: Generating Manhattan plot...")
     qqman.manhattan(data, ax=ax0, out= "Manhattan.png")
-    qqman.qqplot(data, ax=ax1, out= "qq.png
+    
+    print("In progress: Generating QQ plot...")
+    qqman.qqplot(data, ax=ax1, out= "qq.png")
+    plt.show()
     
     return data
