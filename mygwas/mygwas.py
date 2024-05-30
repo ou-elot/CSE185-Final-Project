@@ -15,6 +15,10 @@ def main():
     --geno (str): Path to the VCF file containing genotype data.
     --pheno (str): Path to the text file containing phenotype data.
     """
+    PINK = '\033[95m'
+    BLUE = '\033[94m'
+    CYAN = '\033[96m' 
+    
     parser = argparse.ArgumentParser(
         #prog = "mygwas",
         #description = "Command Line Script to perform gwas"
