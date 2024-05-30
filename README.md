@@ -57,6 +57,7 @@ The mygwas tool is a command line tool that takes in a vcf file containing genot
 ```
 usage: mygwas --geno [genotype file] --pheno [phenotype file] 
 example: mygwas --geno geno.vcf --pheno pheno.phen
+testing: mygwas --geno gwas_test.vcf  --pheno lab3_gwas.phen
 ```
 Output files will be named the following:
 ```
