@@ -14,9 +14,11 @@ def main():
     -----------------------
     --geno (str): Path to the VCF file containing genotype data.
     --pheno (str): Path to the text file containing phenotype data.
+    
     --output (str): Directory where the output files will be saved. Must include trailing '/'.
     --graphs (bool): Flag indicating whether to generate Manhattan and QQ plots.
     --linreg (bool): Flag indicating whether to conduct linear regression to obtain beta and p-values.
+    
     """
     parser = argparse.ArgumentParser(
         prog = "mygwas",
