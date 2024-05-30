@@ -49,7 +49,7 @@ def main():
     )
     parser.add_argument(
         "--pheno", 
-        help = f"{BLUE}PHENO file that contains phenotype data {PINK}", 
+        help = f"{BLUE}PHENO file that contains phenotype data {\033[0m}", 
         type = str,
         required = True
     )
