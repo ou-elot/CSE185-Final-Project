@@ -62,6 +62,7 @@ def main():
         geno = args.geno
         pheno = args.pheno
         gwas(geno, pheno)
+        print("Complete!")
         sys.exit(0)
   
 if __name__ == "__main__":
