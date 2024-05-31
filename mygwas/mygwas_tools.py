@@ -25,9 +25,9 @@ def genotype(genotype_path):
                   genotype is the sum of its alleles.
     """
     geno= pd.read_csv(genotype_path, comment="#", sep="\t", header = None)
-    y=-1
+    y = -1
     for index, row in geno.iterrows():
-        y=y+1
+        y = y+1
         for i in range (9, len(geno.axes[1]) ):
             gt = row[i]
             alleles = gt.split("|") 
@@ -38,7 +38,7 @@ def genotype(genotype_path):
 
 
 def getPhenotype(phenotype_path):
-    phen = pd.read_csv(phenotype_path, sep='\t', header =None)
+    phen = pd.read_csv(phenotype_path, sep='\t', header = None)
     return phen
 
 def Linreg(gts, pts):
@@ -63,13 +63,15 @@ def Linreg(gts, pts):
     X = sm.add_constant(gts)
     model = sm.OLS(pts, X)
     results = model.fit()
+    
+    # Getting the effect size anf p-val from results
     beta = results.params[1]
     pval = results.pvalues[1]
     return beta, pval
 
 def gwas (geno_file, pheno_file):
     """
-     This function performs a Genome-Wide Association Study (GWAS) by 
+    This function performs a Genome-Wide Association Study (GWAS) by 
     analyzing genotype and phenotype data. It reads the genotype and 
     phenotype files, performs linear regression for each SNP, plots the 
     data into qq and manhattan plots, and exports the pvalues, qq plots, 
@@ -91,22 +93,33 @@ def gwas (geno_file, pheno_file):
     genoCopy = genotype(geno_file)
     geno = genotype(geno_file)
     genoCopy.drop(genoCopy.columns[[0,1,2,3,4,5,6,7,8]], axis=1, inplace=True)
+    
     pheno = getPhenotype(pheno_file)
     print("In progress: Conducting Linear Regression...")
     pts = pheno[2]
+
+    # Linear Regression for each SNP
     for index, row in genoCopy.iterrows():
         gts = genoCopy.iloc[index].to_numpy()
         gts = gts.astype(np.float)
         beta, pval = Linreg(gts, pts);
         toAdd = [geno[0][index], geno[2][index], geno[1][index], pval, beta]
         results.append(toAdd)
+
+    # Dataframe from results
     data = pd.DataFrame(results, columns = ['CHR', 'SNP', 'BP', 'P', 'BETA'])
+    
+    # Save dataframe of GWAS results 
     data.to_csv('linreg.txt', sep='\t')
+
+    # Perform Manhattan plot
     print("In progress: Generating Manhattan plot...")
     fig = plt.figure()
     fig, (ax0) = plt.subplots(1, gridspec_kw={'width_ratios': [1]})
     fig.set_size_inches((5, 5))
     qqman.manhattan(data, ax=ax0, out= "Manhattan.png")
+
+    # Perform QQ plot
     print("In progress: Generating QQ plot...")
     fig2 = plt.figure()
     fig2.set_size_inches((5, 5))
