@@ -49,7 +49,6 @@ pip install . #do not forget the period!
 You should now be able to run the command. Type the following to check:
 ```
 mygwas --help
-
 ```
 >[!IMPORTANT]
 >  Try the following if the command above doesnt work
