@@ -3,7 +3,7 @@ UCSD CSE 185 Spring 2024 Final Project Elliott Ou, Audria Montalvo, and Lenny Le
 
 # MyGWAS
 
-MyGWAS is a command line tool designed to perform Genome-Wide Association Studies (GWAS). It processes genotype and phenotype data, conducts linear regression to obtain statistical associations, and generates visualizations such as Manhattan plots and QQ plots.
+MyGWAS is a command line tool designed to perform Genome-Wide Association Studies (GWAS). It processes genotype and phenotype data, conducts linear regression to obtain statistical associations, and generates Manhattan plots and QQ plots as visualization.
 
 ## Features
 - Read and preprocess genotype data from VCF files.
