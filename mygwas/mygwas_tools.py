@@ -79,6 +79,7 @@ def filter_by_maf(geno_df, threshold=0.05):
             maf_filtered_geno.append(row)
     return pd.DataFrame(maf_filtered_geno)
 
+
 def handle_missing_sex(phenotype_df):
     phenotype_df.fillna({'sex': 'Unknown'}, inplace=True)
     return phenotype_df
