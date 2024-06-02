@@ -60,7 +60,8 @@ mygwas --help
 
 Should see:
 
-![help_message](https://github.com/ou-elot/CSE185-Final-Project/assets/76548988/81f6033d-3860-43ce-ae4c-179fd70a5369)
+![help_msg](https://github.com/ou-elot/CSE185-Final-Project/assets/76548988/9a6e1b5e-41fb-48d9-9bba-0a9e7ae84e35)
+
 
 
 ## Usage
