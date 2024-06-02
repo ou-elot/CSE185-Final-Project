@@ -71,15 +71,15 @@ def Linreg(gts, pts):
 
 
 def filter_by_maf(geno_df, threshold):
-    maf_filtered_geno = []
-    for index, row in geno_df.iterrows():
-        allele_counts = row.value_counts()
+    maf_filtered_columns = []
+    for column in geno_df.columns:
+        allele_counts = geno_df[column].value_counts()
         if len(allele_counts) < 2:
             continue
         maf = min(allele_counts[0], allele_counts[1]) / sum(allele_counts)
         if maf >= threshold:
-            maf_filtered_geno.append(row)
-    return pd.DataFrame(maf_filtered_geno)
+            maf_filtered_columns.append(column)
+    return geno_df[maf_filtered_columns]
 
 
 def handle_missing_sex(phenotype_df):
