@@ -28,9 +28,10 @@ Now change directory into the project folder:
 ```
 cd CSE185-Final-Project
 ```
-Download the requirements.
+Download the requirements. QQman package requires its own command. 
 ```
 pip install -r requirements.txt
+pip install qqman
 ```
 
 Run the following commands in the terminal before installation to ensure installation is successful.
@@ -48,6 +49,8 @@ pip install . #do not forget the period!
 You should now be able to run the command. Type the following to check:
 ```
 mygwas --help
+#try the following if the command above doesnt work
+mygwas -h
 ```
 Should see:
 
