@@ -69,6 +69,21 @@ def Linreg(gts, pts):
     pval = results.pvalues[1]
     return beta, pval
 
+
+def filter_by_maf(geno_df, threshold=0.05):
+    maf_filtered_geno = []
+    for index, row in geno_df.iterrows():
+        allele_counts = row.value_counts()
+        maf = min(allele_counts[0], allele_counts[1]) / sum(allele_counts)
+        if maf >= threshold:
+            maf_filtered_geno.append(row)
+    return pd.DataFrame(maf_filtered_geno)
+
+def handle_missing_sex(phenotype_df):
+    phenotype_df.fillna({'sex': 'Unknown'}, inplace=True)
+    return phenotype_df
+
+
 def gwas (geno_file, pheno_file):
     """
     This function performs a Genome-Wide Association Study (GWAS) by 
