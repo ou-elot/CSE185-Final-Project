@@ -3,7 +3,7 @@ UCSD CSE 185 Spring 2024 Final Project Elliott Ou, Audria Montalvo, and Lenny Le
 
 ![MyGWAS (1)](https://github.com/ou-elot/CSE185-Final-Project/assets/76548988/0a250a80-426d-4cd0-ac96-cb94e33740d9)
 
-MyGWAS is a command line tool designed to perform `Genome-Wide Association Studies (GWAS)`. It processes genotype and phenotype data, conducts linear regression to obtain statistical associations, and generates Manhattan plots and QQ plots as visualization.
+MyGWAS is a command line tool designed to perform **Genome-Wide Association Studies (GWAS)**. It processes genotype and phenotype data, conducts linear regression to obtain statistical associations, and generates Manhattan plots and QQ plots as visualization.
 
 ## Features
 - Read and preprocess genotype data from VCF files.
@@ -65,7 +65,7 @@ Should see:
 
 
 ## Usage
-The mygwas tool is a command line tool that takes in a vcf file containing genotypes and a csv file containing phenotypes, and ouputs files to the current directory. In the current version, the program only takes files as input if they are in the current working directory.
+The MyGwas tool is a command line tool that takes in a vcf file containing genotypes and a csv file containing phenotypes, and ouputs files to the current directory. In the current version, the program only takes files as input if they are in the current working directory.
 ```
 usage: mygwas --geno [genotype file] --pheno [phenotype file] 
 example: mygwas --geno geno.vcf --pheno pheno.phen
