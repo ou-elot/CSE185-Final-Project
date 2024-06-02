@@ -15,11 +15,15 @@ def main():
     --geno (str): Path to the VCF file containing genotype data.
     --pheno (str): Path to the text file containing phenotype data.
     """
+    
+    #ANSI color codes for formatting
     PINK = '\033[95m'
     BLUE = '\033[94m'
     CYAN = '\033[96m' 
     WHITE = '\033[0m'
     BOLD = '\033[1m'
+    
+    #Pareser setup
     parser = argparse.ArgumentParser(
         #prog = "mygwas",
         #description = "Command Line Script to perform gwas"
@@ -39,6 +43,7 @@ def main():
         ),
         formatter_class=argparse.RawTextHelpFormatter
     )
+    
     #Input
     #parser.add_argument("--geno", help="vcf file of a genome that contains genotype", type = str)
     #parser.add_argument("--pheno", help="txt file that contains phenotypes of a genome", type = str)
@@ -56,13 +61,15 @@ def main():
     )
     args = parser.parse_args()
 
+    #Check if file exists
     if not os.path.isfile(args.geno) or not os.path.isfile(args.pheno):
         print("Invalid file path.")
         sys.exit(1)
     else:
+        #Inputs as parameters for GWAS program
         geno = args.geno
         pheno = args.pheno
-        gwas(geno, pheno)
+        gwas(geno, pheno) 
         print("Complete!")
         sys.exit(0)
   
