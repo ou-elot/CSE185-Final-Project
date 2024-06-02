@@ -35,7 +35,7 @@ def main():
             "------------------------------------------------------------\n"
             f"Example usage:\n"
             f"{BLUE}mygwas --geno path/to/genotype.vcf --pheno path/to/phenotype.phen {PINK}\n"
-            "============================================================"
+            "============================================================ {WHITE}"
         ),
         formatter_class=argparse.RawTextHelpFormatter
     )
