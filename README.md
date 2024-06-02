@@ -49,9 +49,16 @@ pip install . #do not forget the period!
 You should now be able to run the command. Type the following to check:
 ```
 mygwas --help
-#try the following if the command above doesnt work
-mygwas -h
+
 ```
+>[!IMPORTANT]
+>  Try the following if the command above doesnt work
+> ```
+>  mygwas -h
+>  ```
+
+
+
 Should see:
 
 ![help_message](https://github.com/ou-elot/CSE185-Final-Project/assets/76548988/81f6033d-3860-43ce-ae4c-179fd70a5369)
