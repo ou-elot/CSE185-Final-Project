@@ -48,13 +48,13 @@ def main():
     #parser.add_argument("--geno", help="vcf file of a genome that contains genotype", type = str)
     #parser.add_argument("--pheno", help="txt file that contains phenotypes of a genome", type = str)
     parser.add_argument(
-        "--geno", 
+        f"{WHITE}--geno", 
         help=f"{BLUE}VCF file that contains genotype data{PINK}", 
         type = str,
         required = True
     )
     parser.add_argument(
-        "--pheno", 
+        f"{WHITE}--pheno", 
         help = f"{BLUE}PHENO file that contains phenotype data {WHITE}", 
         type = str,
         required = True
