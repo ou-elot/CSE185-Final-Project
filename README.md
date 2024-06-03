@@ -79,4 +79,4 @@ manhattan plot: manhattan.png
 ```
 
 ## Note to Tester
-If you are using test.vcf in the testfiles directory, note that it is a small subset of the complete data from a file in 1000 Genomes, which will be uploaded into testfiles. The fulldata set could not be uncompressed on our terminals due to file size. You can fork this repository and edit the genotypes to see how it would affect the p-value, manhattan plot, and qq plot. 
+If you are using test.vcf in the testfiles directory, note that it is a small subset of the complete data from a file in 1000 Genomes. The data's index tbi file was uploaded to the ~/testfiles/read_data folder. The actual zipped vcf data was too large to upload to github. It can be found as the fourth link at this attached [link](https://hgdownload.cse.ucsc.edu/gbdb/hg19/1000Genomes/phase3/).The fulldata set could not be uncompressed on our terminals due to file size. You can fork this repository and edit the genotypes to see how it would affect the p-value, manhattan plot, and qq plot. 
