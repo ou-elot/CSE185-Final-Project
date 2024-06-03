@@ -31,6 +31,7 @@ def genotype(genotype_path):
     y = -1
     for index, row in geno.iterrows():
         y = y+1
+        # Going through each individual's genotype (gt) data ex: 0|1, 1|0, 1|1
         for i in range (9, len(geno.axes[1])):
             gt = row[i]
             alleles = gt.split("|") 
