@@ -24,11 +24,14 @@ def genotype(genotype_path):
     pd.DataFrame: A pandas DataFrame with updated genotype values, where each 
                   genotype is the sum of its alleles.
     """
-    geno= pd.read_csv(genotype_path, comment="#", sep="\t", header = None)
+    
+    # Stores the genotype data from a VCF file aka excludes the meta-information
+    geno = pd.read_csv(genotype_path, comment="#", sep="\t", header = None)
+    
     y = -1
     for index, row in geno.iterrows():
         y = y+1
-        for i in range (9, len(geno.axes[1]) ):
+        for i in range (9, len(geno.axes[1])):
             gt = row[i]
             alleles = gt.split("|") 
             alleles = [int(item) for item in alleles]
