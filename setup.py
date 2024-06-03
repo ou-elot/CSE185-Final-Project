@@ -4,7 +4,7 @@ from mygwas.version import version
 
 MAJ = 0
 MIN = 3
-REV = 0
+REV = 1
 VERSION = '%d.%d.%d' % (MAJ, MIN, REV)
 
 
