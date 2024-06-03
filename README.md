@@ -28,7 +28,7 @@ Now change directory into the project folder:
 ```
 cd CSE185-Final-Project
 ```
-Download the requirements. QQman package requires its own command. 
+Download the requirements. QQman package download requires its own command, and will not be done with requirements.txt. 
 ```
 pip install -r requirements.txt
 pip install qqman
@@ -77,3 +77,6 @@ p-values and beta values: linreg.txt
 qq-plot: qq.png
 manhattan plot: manhattan.png
 ```
+
+## Note to Tester
+If you are using test.vcf in the testfiles directory, note that it is a small subset of the complete data from a file in 1000 Genomes, which will be uploaded into testfiles. The fulldata set could not be uncompressed on our terminals due to file size. You can fork this repository and edit the genotypes to see how it would affect the p-value, manhattan plot, and qq plot. 
