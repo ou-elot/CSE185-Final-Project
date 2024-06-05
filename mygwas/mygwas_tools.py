@@ -99,11 +99,12 @@ def gwas (geno_file, pheno_file):
     print("In progress: Reading files...")
     genoCopy = genotype(geno_file)
     geno = genotype(geno_file)
+    # only keeps individuals gt, so the sum of alleles 
     genoCopy.drop(genoCopy.columns[[0,1,2,3,4,5,6,7,8]], axis=1, inplace=True)
     
     pheno = getPhenotype(pheno_file)
-    print("In progress: Conducting Linear Regression...")
-    pts = pheno[2]
+    print("In progress: Conducting Linear Regression...")    
+    pts = pheno[2] # store phenotype values column found in .phen 
 
     # Linear Regression for each SNP
     for index, row in genoCopy.iterrows():
