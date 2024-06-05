@@ -107,10 +107,14 @@ def gwas (geno_file, pheno_file):
     pts = pheno[2] # store phenotype values column found in .phen 
 
     # Linear Regression for each SNP
-    for index, row in genoCopy.iterrows():
+    for index, row in genoCopy.iterrows():        
         gts = genoCopy.iloc[index].to_numpy()
-        gts = gts.astype(np.float)
-        beta, pval = Linreg(gts, pts);
+        gts = gts.astype(np.float) #float type as prep for Linear regression
+        
+        #ex: gts = [0,2,0,1,etc] ; pts = [-1.08,-0.44, 1,88,2.46]
+        beta, pval = Linreg(gts, pts); 
+        
+        #geno[0] = CHROM ; geno[1] = POS ; geno[2] = ID
         toAdd = [geno[0][index], geno[2][index], geno[1][index], pval, beta]
         results.append(toAdd)
 
